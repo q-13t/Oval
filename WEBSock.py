@@ -30,8 +30,12 @@ model = ks.Sequential([model, ks.layers.Softmax()])
 log.info("Loaded Model: ")
 model.summary()
 
-def compact_predictions(predictions)->list:
-    return [{"Class":class_names[i],"Probability": str("{:.10f}".format(p))} for i, p in enumerate(predictions)]
+def compact_predictions(predictions) -> list:
+    pred = np.empty((len(predictions), 2), dtype=object)
+    pred[:,0] = class_names
+    pred[:,1] = ["{:.10f}".format(p) for p in predictions]
+    pred = pred[pred[:,1].argsort()[::-1]]
+    return [{"Class":p[0],"Probability": str(p[1])} for p in pred]
 
 async def mainHandler(websocket):
     try:
