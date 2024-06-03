@@ -4,4 +4,6 @@
     <string name="scroll_to_top_tip">Button That scrolls view to top</string>
     <string name="connecting">Connecting to the server</string>
     <string name="try_to_reconnect">Reconnect</string>
+    <string name="expand">Expand</string>
+    <string name="collapse">Collapse</string>
 </resources>

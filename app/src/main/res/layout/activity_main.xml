@@ -4,6 +4,7 @@
     android:id="@+id/main_constraint_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    style="@style/Container.Main"
     android:orientation="vertical">
 <ScrollView
     android:id="@+id/scrollView"
@@ -30,9 +31,10 @@
 
         <Button
             android:id="@+id/photo_button"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@style/LightButton"
             android:layout_width="match_parent"
             android:layout_height="100sp"
+            android:textSize="25sp"
             android:text="@string/photo"
             />
 

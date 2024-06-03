@@ -3,12 +3,32 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="backgroundColor">@color/primary_background_light</item>
-        <item name="android:textColor">@color/primary_text_light</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" >
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Container.Main" parent="">
+        <item name="android:background">@color/background_day</item>
+    </style>
+
+    <style name="LightButton" parent="@style/Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Text.Big" parent="">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Text.Small" parent="Text.Big">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ProgressBar.Horizontal" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/red</item>
+    </style>
+
 </resources>

@@ -5,4 +5,29 @@
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" >
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Container.Main" parent="">
+        <item name="android:background">@color/background_night</item>
+    </style>
+
+    <style name="LightButton" parent="@style/Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+
+    <style name="Text.Big" parent="">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+    <style name="Text.Small" parent="Text.Big">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ProgressBar.Horizontal" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+              <item name="android:progressTint">@color/cyan</item>
+    </style>
 </resources>
