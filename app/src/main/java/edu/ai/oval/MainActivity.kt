@@ -18,6 +18,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
+import androidx.core.view.contains
 import androidx.core.view.get
 import org.json.JSONArray
 import org.json.JSONObject
@@ -25,18 +27,19 @@ import java.io.ByteArrayOutputStream
 
 
 class MainActivity : AppCompatActivity() {
-
     private val tag: String="MainActivity"
     private var imageView: ImageView? = null
     private lateinit var utils: Utils
     private lateinit var socketController: SocketController
     private var scrollView :ScrollView? = null
+    private lateinit var  collapseButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         utils = Utils(this)
         socketController = SocketController(this, utils)
+        collapseButton = layoutInflater.inflate(R.layout.compact_button, null) as  Button
         tryToConnectToTheServer()
     }
 
@@ -102,14 +105,22 @@ class MainActivity : AppCompatActivity() {
     fun displayServerResponse(jsonData: JSONArray) {
         runOnUiThread{
             val container = findViewById<LinearLayout>(R.id.predictions_linear_layout)
+            collapseButton.setOnClickListener {
 
-//            val dataset : HashMap<String, Float> = HashMap()
-//            for (i in  0 until jsonData.length()){
-//                val item = jsonData.get(i) as JSONObject
-//                dataset[item.getString("Class")] = item.getString("Probability").toFloat()
-//            }
-//            val ordered: Map<String, Float> = dataset.toList().sortedBy { (_, value) -> value }.reversed().toMap()
-
+                // if list is collapsed expand it
+                if (collapseButton.text.equals(getString(R.string.expand))){
+                    for (c in container.children){
+                        c.visibility = View.VISIBLE
+                    }
+                    collapseButton.text = getString(R.string.collapse)
+                }else{ // if list is expanded collapse it
+                    for (i in 6 until container.childCount -1){
+//                        Log.d(tag, "collapsing $i")
+                        container[i].visibility = View.GONE
+                    }
+                    collapseButton.text = getString(R.string.expand)
+                }
+            }
             if(container.childCount!= jsonData.length()){//Different sizes -> remove all and add new views
                 container.removeAllViews()
                 for (i in  0 until jsonData.length()){
@@ -121,6 +132,8 @@ class MainActivity : AppCompatActivity() {
                     (((view[0])as LinearLayout) [1] as TextView).text = prob
                     ((view[1])as ProgressBar ).progress = (prob.toFloat() * 100).toInt()
                     container.addView(view)
+                    if(i>=5)
+                        view.visibility = View.GONE
                 }
             }else{// If sizes are same -> no need to recreated and read views
                 for (i in  0 until jsonData.length()){
@@ -131,7 +144,15 @@ class MainActivity : AppCompatActivity() {
                     (((view[0])as LinearLayout) [0] as TextView).text = clas
                     (((view[0])as LinearLayout) [1] as TextView).text = prob
                     ((view[1])as ProgressBar ).progress = (prob.toFloat() * 100).toInt()
+                    if(i>=5)
+                        view.visibility = View.GONE
                 }
+            }
+
+            if(container.childCount > 5 && !container.contains(collapseButton)) {
+                container.addView(collapseButton)
+            }else {
+                container.removeView(collapseButton)
             }
         }
     }
