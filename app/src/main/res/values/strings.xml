@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Oval</string>
+    <string name="photo">Take Photo</string>
+    <string name="scroll_to_top_tip">Button That scrolls view to top</string>
+    <string name="connecting">Connecting to the server</string>
+    <string name="try_to_reconnect">Reconnect</string>
+</resources>
