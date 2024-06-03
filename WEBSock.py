@@ -16,7 +16,7 @@ config = cp.ConfigParser()
 config.read("config.ini")
 
 LOG_LEVEL = 10 if config.getint("SERVER", "LOG_LEVEL") == -1 else config.getint("SERVER", "LOG_LEVEL")
-IP = socket.gethostbyname(socket.getfqdn()) if config.getint("SERVER", "IP") == -1 else config.get("SERVER", "IP")
+IP = socket.gethostbyname(socket.getfqdn()) if config.get("SERVER", "IP") == "-1" else config.get("SERVER", "IP")
 PORT = 8765 if config.getint("SERVER", "PORT") == -1 else config.getint("SERVER", "PORT")
 MODEL_DIR = config.get("MODELS", "MODEL_DIR")
 MODEL = config.get("SERVER", "MODEL")
