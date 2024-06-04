@@ -11,12 +11,12 @@ There are two main components of this project
 1. Python server
    The server is responsible for training, predicting and organizing the predictions for the client.
 
-   For Server documentation check [server branch](https://123)
+   For Server documentation check [server branch](https://github.com/q-13t/Oval/tree/Server)
 
 2. Android APK
    This part of the project is responsible for capturing images and presenting predictions to the client via phone.
 
-   For Client documentation check [apk branch](https://123)
+   For Client documentation check [apk branch](https://github.com/q-13t/Oval/tree/apk)
 
 # Licensing
 
