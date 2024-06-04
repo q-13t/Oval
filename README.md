@@ -12,24 +12,9 @@ At first client will try to connect to the server. If successful client will be 
 
 # Examples
 
-<div class="container" style="  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: 1fr; gap: 0px 0px; grid-template-areas: '. . . .'; margin: 5% 1%">
-        <div style="padding: 2% 5%">
-            <img src="./readme_images/Connecting.jpg" style="width: 100%; height:100%"></img>
-            <p>Connecting to the server</p>
-        </div>
-        <div style="padding: 2% 5%">
-            <img src="./readme_images/Fox.jpg" style="width: 100%; height:100%"></img>
-            <p>Certain fox predictions with day mode UI</p>
-        </div>
-        <div style="padding: 2% 5%">
-            <img src="./readme_images/Telephone.jpg" style="width: 100%; height:100%"></img>
-            <p>Certain telephone predictions with night mode UI</p>
-        </div>
-        <div style="padding: 2% 5%">
-            <img src="./readme_images/Oranges.jpg" style="width: 100%; height:100%"></img>
-            <p>Uncertain oranges predictions</p>
-        </div>
-    </div>
+| ![](./readme_images/Connecting.jpg) | ![](./readme_images/Fox.jpg)             | ![](./readme_images/Telephone.jpg)               | ![](./readme_images/Oranges.jpg) |
+| ----------------------------------- | ---------------------------------------- | ------------------------------------------------ | -------------------------------- |
+| Connecting to the server            | Certain fox predictions with day mode UI | Certain telephone predictions with night mode UI | Uncertain oranges predictions    |
 
 # Licensing
 
